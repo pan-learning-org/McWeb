@@ -19,7 +19,7 @@ from simrunner import urls as simrunner_urls
 from signupper import urls as signupper_urls
 
 urlpatterns = [
-    url(r'^admin/?', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^', include(signupper_urls)),
     url(r'^', include(simrunner_urls)), # NOTE: simrunner handles all fall-throughs 
 ]

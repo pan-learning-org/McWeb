@@ -26,7 +26,7 @@ RUN cd /usr/lib/x86_64-linux-gnu \
 RUN apt-get update \
     && apt-get -y install git libsasl2-dev python3-dev libldap2-dev libssl-dev \
         python3-venv makepasswd nginx php-fpm php-mysql php-xml php-curl \
-        php-zip php-gd php-mbstring php-xmlrpc php-soap php-intl php-ldap \
+        php-zip php-gd php-mbstring php-xmlrpc php-soap php-intl php-ldap nano \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /srv/mcweb && chown -R www-data:www-data /srv/mcweb /var/www/
@@ -42,7 +42,7 @@ RUN echo "\n# Allow www-data to restart uwsgi_mcweb service\nwww-data ALL = NOPA
 WORKDIR /srv/mcweb
 
 RUN python3 -m venv mcvenv \
-    && mcvenv/bin/pip install Django==1.8.2 django-auth-ldap==1.2.7 simplejson python-ldap uwsgi
+    && mcvenv/bin/pip install Django django-auth-ldap simplejson python-ldap uwsgi django-tinymce django-urls
 
 # Copy files from this repo for the server
 COPY --chown=www-data:www-data mcsimrunner /srv/mcweb/McWeb/mcsimrunner

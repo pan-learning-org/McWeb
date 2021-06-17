@@ -5,7 +5,7 @@ from django.db.models import Model, CharField, DateTimeField, TextField
 from django.utils import timezone
 import json
 from django.db.models import BooleanField
-
+import django.db.models as models
 
 class Signup(Model):
     username = CharField(max_length=200)

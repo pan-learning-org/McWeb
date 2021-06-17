@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('displayname', models.CharField(max_length=200)),
                 ('docs', models.TextField()),
                 ('params_str', models.CharField(max_length=1000)),
-                ('group', models.ForeignKey(to='simrunner.InstrGroup')),
+                ('group', models.ForeignKey(to='simrunner.InstrGroup',on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(

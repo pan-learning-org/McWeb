@@ -4,6 +4,7 @@ simrunner models
 from django.db.models import Model, CharField, TextField, ForeignKey, DateTimeField, PositiveIntegerField, BooleanField
 from django.utils import timezone
 import json
+import django.db.models as models
 
 class InstrGroup(Model):
     ''' corresponds to a folder containing instruments '''
@@ -14,7 +15,7 @@ class InstrGroup(Model):
 
 class Instrument(Model):
     ''' corresponds to a mcstas instrument contained in a certain folder '''
-    group = ForeignKey(InstrGroup)
+    group = models.ForeignKey(InstrGroup,on_delete=models.CASCADE)
     
     name = CharField(max_length=200, unique=True)
     displayname = CharField(max_length=200)
